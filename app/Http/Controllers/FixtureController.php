@@ -14,6 +14,7 @@ use App\Models\admPlayerStas;
 
 //-------------------------- Excel -----------------------------
 use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Excel as FileType;
 use App\Exports\FixtureExport;
 use App\Imports\StatsImport;
 
