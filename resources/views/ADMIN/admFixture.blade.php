@@ -45,7 +45,7 @@
         <div class="container" style="margin-top: 20px">
             <div class="row">
                 <div class="col">
-                    <a class="btn btn-primary" href="/addFixture">Add fixture</a>
+                    <a class="btn btn-outline-light" href="/addFixture">Add fixture</a>
                 </div>
                 <div class="col">
                     {{-- <form action="/importFixture" method="post" enctype="multipart/form-data">
@@ -53,7 +53,7 @@
                         <input type="file" name="file">
                         <button type="submit" class="btn btn-primary">Import</button>
                     </form> --}}
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Import fixture stats
                       </button>
                 </div>
@@ -86,10 +86,10 @@
                                         <td>{{ $t->name }}</td>
                                     @endif
                                 @endforeach
-                                <td><a href="/exportFixture/{{ $fixture->id }}" class="btn btn-primary">Export template</a> |
-                                    <a href="/admFixtureStats/{{ $fixture->id }}" class="btn btn-info">See results</a></td>
-                                <td><a href="/editFixture/{{ $fixture->id }}" class="btn btn-light">Edit</a> |
-                                    <a href="/deleteFixture/{{ $fixture->id }}" class="btn btn-danger">Delete</a></td>
+                                <td><a href="/exportFixture/{{ $fixture->id }}" class="btn btn-outline-light">Export template</a> |
+                                    <a href="/admFixtureStats/{{ $fixture->id }}" class="btn btn-outline-light">See results</a></td>
+                                <td><a href="/editFixture/{{ $fixture->id }}" class="btn btn-outline-light">Edit</a> |
+                                    <a href="/deleteFixture/{{ $fixture->id }}" class="btn btn-outline-danger">Delete</a></td>
                             </tr>
                         @endforeach
                     </tbody>

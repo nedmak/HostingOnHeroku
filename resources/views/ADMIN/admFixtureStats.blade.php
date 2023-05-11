@@ -417,12 +417,12 @@
             <div class="row">
                 <div class="col">
                     @foreach ($fixture as $f)
-                        <a href="/email/{{ $f->id }}" class="button btn btn-primary" style="margin-bottom: 50px; margin-top: 30px;">Send results via Email</a>
+                        <a href="/email/{{ $f->id }}" class="btn btn-outline-light" style="margin-bottom: 50px; margin-top: 30px;">Send results via Email</a>
                     @endforeach
                 </div>
                 <div class="col">
                     <div class="d-flex justify-content-end">
-                        <a href="/admFixture" class="button btn btn-danger" style="margin-bottom: 50px; margin-top: 30px;">Back</a>
+                        <a href="/admFixture" class="btn btn-outline-danger" style="margin-bottom: 50px; margin-top: 30px;">Back</a>
                     </div>
                 </div>
             </div>

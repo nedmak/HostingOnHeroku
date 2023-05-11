@@ -44,16 +44,16 @@
         <div class="container" style="margin-top: 20px">
             <div class="row">
                 <div class="col">
-                    <a class="btn btn-primary" href="/addPlayer">Add new Player</a>
+                    <a class="btn btn-outline-light" href="/addPlayer">Add new Player</a>
                 </div>
                 <div class="col">
-                    <a class="btn btn-primary" href="/export">Excel template</a>
+                    <a class="btn btn-outline-light" href="/export">Excel template</a>
                 </div>
                 <div class="col">
                     <form action="/importPlayer" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="file" name="file">
-                        <button type="submit" class="btn btn-primary">Import</button>
+                        <button type="submit" class="btn btn-outline-light">Import</button>
                     </form>
                 </div>
             </div>
@@ -86,8 +86,8 @@
                                         <td>{{ $t->name }}</td>
                                     @endif
                                 @endforeach
-                                <td><a class="btn btn-primary" href="/editPlayer/{{ $players->id }}">Edit</a>|
-                                    <a class="btn btn-danger" href="/deletePlayer/{{ $players->id }}">Delete</a></td>
+                                <td><a class="btn btn-outline-light" href="/editPlayer/{{ $players->id }}">Edit</a>|
+                                    <a class="btn btn-outline-danger" href="/deletePlayer/{{ $players->id }}">Delete</a></td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -57,12 +57,12 @@
                         <div class="row">
                             <div class="col">
                                 <div class="md-3">
-                                    <button type="submit" class="btn btn-primary" style="margin-top: 20px">Update</button>
+                                    <button type="submit" class="btn btn-outline-light" style="margin-top: 20px">Update</button>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="d-flex justify-content-end">
-                                    <a href="/admTeam" class="btn btn-danger"style="margin-top: 20px">Back</a>
+                                    <a href="/admTeam" class="btn btn-outline-danger"style="margin-top: 20px">Back</a>
                                 </div>
                             </div>
                         </div>

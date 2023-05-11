@@ -19,6 +19,7 @@ h2{
 .table{
     color: white;
     backdrop-filter: blur(20px);
+    position: relative;
 }
 .navbar{
     position: relative;

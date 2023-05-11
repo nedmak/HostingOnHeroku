@@ -22,7 +22,7 @@
             <!-- Resources -->
             <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
             <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-            <script src="https://cdn.amcharts.com/lib/5/themes/Dataviz.js"></script>
+            <script src="https://cdn.amcharts.com/lib/5/themes/Dark.js"></script>
 
             <!-- Chart code -->
             <script>
@@ -35,7 +35,7 @@
             // Set themes
             // https://www.amcharts.com/docs/v5/concepts/themes/
             root.setThemes([
-              am5themes_Dataviz.new(root)
+              am5themes_Dark.new(root)
             ]);
 
             // Create chart
@@ -262,7 +262,7 @@
                 </div>
                 <div class="col">
                     <div class="d-flex justify-content-end">
-                        <a href="/admTeam" class="btn btn-danger">Back</a>
+                        <a href="/admTeam" class="btn btn-outline-danger">Back</a>
                     </div>
                 </div>
             </div>
