@@ -43,7 +43,7 @@
 
 
         <div class="container" style="margin-top: 20px">
-            <a class="btn btn-primary" href="/addTeam">Add new Team</a>
+            <a class="btn btn-outline-light" href="/addTeam">Add new Team</a>
             <div class="row">
                 <h2>TEAMS</h2>
                 <table class="table">
@@ -60,10 +60,10 @@
                             <tr>
                                 <td>{{ $teams->id }}</td>
                                 <td>{{ $teams->name }}</td>
-                                <td><a class="btn btn-primary" href="/teamPlayers/{{ $teams->id }}">Players</a> |
-                                    <a class="btn btn-info" href="/admTeamStats/{{ $teams->id }}">See stats</a></td>
-                                <td><a class="btn btn-primary" href="/editTeam/{{ $teams->id }}">Edit</a>|
-                                    <a class="btn btn-danger" href="/deleteTeam/{{ $teams->id }}">Delete</a></td>
+                                <td><a class="btn btn-outline-light" href="/teamPlayers/{{ $teams->id }}">Players</a> |
+                                    <a class="btn btn-outline-light" href="/admTeamStats/{{ $teams->id }}">See stats</a></td>
+                                <td><a class="btn btn-outline-light" href="/editTeam/{{ $teams->id }}">Edit</a>|
+                                    <a class="btn btn-outline-danger" href="/deleteTeam/{{ $teams->id }}">Delete</a></td>
                             </tr>
                         @endforeach
                     </tbody>
