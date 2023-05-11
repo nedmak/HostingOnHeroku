@@ -53,7 +53,7 @@ class GoogleController extends Controller
     public function LogOut(Request $req)
     {
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost:8000/");
+        curl_setopt($curl, CURLOPT_URL, "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://football-stats.herokuapp.com/");
         $data = curl_exec($curl);
         $req->session()->flush();
     }
