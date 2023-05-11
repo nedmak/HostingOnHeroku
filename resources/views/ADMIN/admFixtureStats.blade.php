@@ -316,7 +316,7 @@
 
         <div class="container" style="margin-top: 30px">
             <div class="d-flex justify-content-center">
-                <h1 style="font-size: 60px; font-weight:600;" >@php echo $h_team @endphp @php echo $h_score @endphp -
+                <h1 style="font-size: 60px; font-weight:600; color: white;" >@php echo $h_team @endphp @php echo $h_score @endphp -
                     @php echo $a_score @endphp @php echo $a_team @endphp</h1>
             </div>
         </div>
