@@ -20,6 +20,18 @@
                   <li class="nav-item">
                     <a class="nav-link" href="/">Main</a>
                   </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/teams">Teams</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="/leagues">Leagues</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/players">Players</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/fixtures">Fixtures</a>
+                  </li>
                 </ul>
               </div>
               <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -37,5 +49,7 @@
             <a class="btn btn-light" href="/auth/google/redirect"><img id="google" src="/images/google.png" alt="Google image"> Login with GOOGLE</a>
             {{-- <a class="btn btn-primary" href=""><img id="facebook" src="/images/facebook.png" alt="Google image">Prisijungti naudojant FACEBOOK</a> --}}
         </div>
+
+        <div class="overlay"></div>
     </body>
 </html>

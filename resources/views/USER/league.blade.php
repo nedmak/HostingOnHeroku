@@ -139,8 +139,8 @@
 <script>$(document).ready(function () {
     $('#leagueTable').DataTable({
         lengthMenu: [
-            [8, 10, 25, 50, -1],
-            [8, 10, 25, 50, 'All'],
+            [5, 10, 25, 50, -1],
+            [5, 10, 25, 50, 'All'],
         ],
     });
 });
