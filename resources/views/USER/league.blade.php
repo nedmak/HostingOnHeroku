@@ -93,7 +93,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <button type="submit" class="btn btn-primary py-2">Filter</button>
+                            <button type="submit" class="btn btn-outline-light">Filter</button>
                         </div>
                     </div>
                 </form>

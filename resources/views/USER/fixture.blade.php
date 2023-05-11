@@ -68,7 +68,7 @@
                                 <td>{{ $fixtures->h_team }}</td>
                                 <td>{{ $fixtures->h_goals }} - {{ $fixtures->a_goals }}</td>
                                 <td>{{ $fixtures->a_team }}</td>
-                                <td><a class="nav-link" href="/fixtureStats/{{ $fixtures->id }}">More</a></td>
+                                <td><a class="btn btn-outline-light" href="/fixtureStats/{{ $fixtures->id }}" style="height: 30px; width: 85px; padding: 0; text-align: center;">Stats</a></td>
                             </tr>
                         @endforeach
                     </tbody>

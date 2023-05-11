@@ -76,14 +76,13 @@
               height: 500px;
               margin-left: 75px;
               margin-bottom: 25px;
-                background-color: lightgray;
             }
             </style>
 
             <!-- Resources -->
             <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
             <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-            <script src="https://cdn.amcharts.com/lib/5/themes/Dataviz.js"></script>
+            <script src="https://cdn.amcharts.com/lib/5/themes/Dark.js"></script>
 
             <!-- Chart code -->
             <script>
@@ -96,7 +95,7 @@
             // Set themes
             // https://www.amcharts.com/docs/v5/concepts/themes/
             root.setThemes([
-              am5themes_Dataviz.new(root)
+              am5themes_Dark.new(root)
             ]);
 
             // Create chart
@@ -126,7 +125,10 @@
 
             @foreach ($data as $fixtures)
               @if ($loop->last)
-                $team2 = "{{ $fixtures->team }}";
+                // $team2 = "{{ $fixtures->team }}";
+                @php
+                    $team2 = $fixtures->team;
+                @endphp
 
                 @if (!$fixtures->fouls)
                 $fauls2 = 0;
@@ -164,7 +166,11 @@
                 $saves2 = {{ $fixtures->saves }};
                 @endif
               @else
-                $team1 = "{{ $fixtures->team }}";
+                // $team1 = "{{ $fixtures->team }}";
+
+                @php
+                    $team1 = $fixtures->team;
+                @endphp
 
                 @if (!$fixtures->fouls)
                 $fauls1 = 0;
@@ -207,33 +213,33 @@
             var data = [
                 {
                 Category: "Red cards",
-                $team1: -$red1,
-                $team2: $red2
+                '@php echo $team1 @endphp': -$red1,
+                '@php echo $team2 @endphp': $red2
               },
                 {
                 Category: "Saves",
-                $team1: -$saves1,
-                $team2: $saves2
+                '@php echo $team1 @endphp': -$saves1,
+                '@php echo $team2 @endphp': $saves2
               },
                 {
                 Category: "Yellow cards",
-                $team1: -$yellow1,
-                $team2: $yellow2
+                '@php echo $team1 @endphp': -$yellow1,
+                '@php echo $team2 @endphp': $yellow2
               },
                 {
                 Category: "Offsides",
-                $team1: -$offsides1,
-                $team2: $offsides2
+                '@php echo $team1 @endphp': -$offsides1,
+                '@php echo $team2 @endphp': $offsides2
               },
             {
                 Category: "Corners",
-                $team1: -$corners1,
-                $team2: $corners2
+                '@php echo $team1 @endphp': -$corners1,
+                '@php echo $team2 @endphp': $corners2
               },
               {
                 Category: "Fouls",
-                $team1: -$fauls1,
-                $team2: $fauls2
+                '@php echo $team1 @endphp': -$fauls1,
+                '@php echo $team2 @endphp': $fauls2
               }
             ];
 
@@ -325,8 +331,8 @@
               return series;
             }
 
-            createSeries('$team1', am5.p100, "right", -5);
-            createSeries('$team2', 0, "left", 5);
+            createSeries('@php echo $team1 @endphp', am5.p100, "right", -5);
+            createSeries('@php echo $team2 @endphp', 0, "left", 5);
 
             // Add cursor
             // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
@@ -404,5 +410,6 @@
             @endforeach --}}
 
           <div id="chartdiv"></div>
+          <div class="overlay"></div>
     </body>
 </html>

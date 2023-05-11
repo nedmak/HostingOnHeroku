@@ -15,9 +15,8 @@
               margin-left: 75px;
               margin-bottom: 25px;
               margin-top: 25px;
-              color: white;
 
-              /* background-color: lightgray; */
+              /* background-color: rgb(136, 134, 134); */
               z-index: 2;
             }
             </style>
@@ -25,7 +24,7 @@
             <!-- Resources -->
             <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
             <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-            <script src="https://cdn.amcharts.com/lib/5/themes/Dataviz.js"></script>
+            <script src="https://cdn.amcharts.com/lib/5/themes/Dark.js"></script>
 
             <!-- Chart code -->
             <script>
@@ -35,10 +34,16 @@
             // https://www.amcharts.com/docs/v5/getting-started/#Root_element
             var root = am5.Root.new("chartdiv");
 
+            const myTheme = am5.Theme.new(root);
+
+            myTheme.rule("Label").setAll({
+            fill: am5.color(0xFFFFFF),
+            });
             // Set themes
             // https://www.amcharts.com/docs/v5/concepts/themes/
             root.setThemes([
-              am5themes_Dataviz.new(root)
+              am5themes_Dark.new(root),
+              myTheme
             ]);
 
             // Create chart

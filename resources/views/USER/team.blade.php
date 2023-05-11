@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <button type="submit" class="btn btn-primary py-2">Filter</button>
+                            <button type="submit" class="btn btn-outline-light">Filter</button>
                         </div>
                     </div>
                 </form>
@@ -97,7 +97,8 @@
                                 <td>{{ $teams->name }}</td>
                                 <td>{{ $teams->country }}</td>
                                 <td>{{ $teams->founded }}</td>
-                                <td><a class="nav-link" href="/teamStats/{{ $teams->name }}">More</a></td>
+                                <td><a class="btn btn-outline-light" href="/teamStats/{{ $teams->name }}" style="height: 30px; width: 65px; padding: 0; text-align: center;">Stats</a> |
+                                    <a class="btn btn-outline-light" href="/teamPlayer/{{ $teams->name }}" style="height: 30px; width: 65px; padding: 0; text-align: center;">Players</a></td>
                                 {{-- <td><a class="btn btn-danger" href="{{ url('delete-user/'.$users->id) }}">Delete</a></td> --}}
                             </tr>
                         @endforeach
