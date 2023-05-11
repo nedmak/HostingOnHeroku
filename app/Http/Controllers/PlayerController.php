@@ -236,7 +236,7 @@ class PlayerController extends Controller
     public function importPlayer(Request $req)
     {
         $path = $req->file('file')->getRealPath();
-        Excel::import(new TeamImport(), $path);
+        Excel::import(new TeamImport(), $path, null, \Maatwebsite\Excel\Excel::XLSX);
         return redirect('admPlayer');
     }
 

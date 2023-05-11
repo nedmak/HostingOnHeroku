@@ -17,14 +17,13 @@
               margin-left: 75px;
               margin-bottom: 25px;
               margin-top: 25px;
-                background-color: lightgray;
             }
             </style>
 
             <!-- Resources -->
             <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
             <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-            <script src="https://cdn.amcharts.com/lib/5/themes/Dataviz.js"></script>
+            <script src="https://cdn.amcharts.com/lib/5/themes/Dark.js"></script>
 
             <!-- Chart code -->
             <script>
@@ -37,7 +36,7 @@
             // Set themes
             // https://www.amcharts.com/docs/v5/concepts/themes/
             root.setThemes([
-              am5themes_Dataviz.new(root)
+              am5themes_Dark.new(root)
             ]);
 
             // Create chart
@@ -331,7 +330,7 @@
                         @foreach ($fixture as $f)
                             @foreach ($team as $t)
                                 @if ($f->h_team == $t->id)
-                                    <h3>{{ $t->name }} players individual stats</h3>
+                                    <h3 style="color: white;">{{ $t->name }} players individual stats</h3>
                                 @endif
                             @endforeach
                         @endforeach
@@ -374,7 +373,7 @@
                         @foreach ($fixture as $f)
                             @foreach ($team as $t)
                                 @if ($f->a_team == $t->id)
-                                    <h3>{{ $t->name }} players individual stats</h3>
+                                    <h3 style="color: white;">{{ $t->name }} players individual stats</h3>
                                 @endif
                             @endforeach
                         @endforeach

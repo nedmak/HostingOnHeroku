@@ -17,7 +17,6 @@
               margin-left: 75px;
               margin-bottom: 25px;
               margin-top: 25px;
-                background-color: lightgray;
             }
             </style>
 
@@ -284,7 +283,7 @@
 
         <div class="container" style="margin-top: 30px">
             <div class="d-flex justify-content-center">
-                <h1 style="font-size: 60px; font-weight:600;" >@php echo $h_team @endphp @php echo $h_score @endphp -
+                <h1 style="font-size: 60px; font-weight:600; color: white;" >@php echo $h_team @endphp @php echo $h_score @endphp -
                     @php echo $a_score @endphp @php echo $a_team @endphp</h1>
             </div>
         </div>
@@ -299,7 +298,7 @@
                         @foreach ($fixture as $f)
                             @foreach ($team as $t)
                                 @if ($f->h_team == $t->id)
-                                    <h3>{{ $t->name }} players individual stats</h3>
+                                    <h3 style="color: white;">{{ $t->name }} players individual stats</h3>
                                 @endif
                             @endforeach
                         @endforeach
@@ -342,7 +341,7 @@
                         @foreach ($fixture as $f)
                             @foreach ($team as $t)
                                 @if ($f->a_team == $t->id)
-                                    <h3>{{ $t->name }} players individual stats</h3>
+                                    <h3 style="color: white;">{{ $t->name }} players individual stats</h3>
                                 @endif
                             @endforeach
                         @endforeach
