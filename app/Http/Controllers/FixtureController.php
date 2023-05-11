@@ -14,7 +14,6 @@ use App\Models\admPlayerStas;
 
 //-------------------------- Excel -----------------------------
 use Maatwebsite\Excel\Facades\Excel;
-use Maatwebsite\Excel\Excel as FileType;
 use App\Exports\FixtureExport;
 use App\Imports\StatsImport;
 
@@ -269,7 +268,7 @@ class FixtureController extends Controller
     {
         session()->put('fixture', $req->fixture);
         $path = $req->file('file')->getRealPath();
-        Excel::import(new StatsImport, $path, null, Excel::XLSX);
+        Excel::import(new StatsImport, $path, null, \Maatwebsite\Excel\Excel::XLSX);
         session()->forget('fixture');
         return redirect('admFixture');
     }
