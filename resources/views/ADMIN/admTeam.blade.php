@@ -63,7 +63,7 @@
                                 <td><a class="btn btn-outline-light" href="/teamPlayers/{{ $teams->id }}">Players</a> |
                                     <a class="btn btn-outline-light" href="/admTeamStats/{{ $teams->id }}">See stats</a></td>
                                 <td><a class="btn btn-outline-light" href="/editTeam/{{ $teams->id }}">Edit</a>|
-                                    <a class="btn btn-outline-danger" href="/deleteTeam/{{ $teams->id }}">Delete</a></td>
+                                    <a class="btn btn-danger" href="/deleteTeam/{{ $teams->id }}">Delete</a></td>
                             </tr>
                         @endforeach
                     </tbody>

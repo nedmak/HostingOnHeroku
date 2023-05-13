@@ -15,7 +15,6 @@
               margin-left: 75px;
               margin-bottom: 25px;
               margin-top: 25px;
-                background-color: lightgray;
             }
             </style>
 
@@ -258,11 +257,11 @@
         <div class="container" style="margin-top: 20px">
             <div class="row">
                 <div class="col">
-                    <h1>@php echo $name @endphp team performance</h1>
+                    <h1 style="color: white;">@php echo $name @endphp team performance</h1>
                 </div>
                 <div class="col">
                     <div class="d-flex justify-content-end">
-                        <a href="/admTeam" class="btn btn-outline-danger">Back</a>
+                        <a href="/admTeam" class="btn btn-danger">Back</a>
                     </div>
                 </div>
             </div>

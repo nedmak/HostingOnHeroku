@@ -89,7 +89,7 @@
                                 <td><a href="/exportFixture/{{ $fixture->id }}" class="btn btn-outline-light">Export template</a> |
                                     <a href="/admFixtureStats/{{ $fixture->id }}" class="btn btn-outline-light">See results</a></td>
                                 <td><a href="/editFixture/{{ $fixture->id }}" class="btn btn-outline-light">Edit</a> |
-                                    <a href="/deleteFixture/{{ $fixture->id }}" class="btn btn-outline-danger">Delete</a></td>
+                                    <a href="/deleteFixture/{{ $fixture->id }}" class="btn btn-danger">Delete</a></td>
                             </tr>
                         @endforeach
                     </tbody>

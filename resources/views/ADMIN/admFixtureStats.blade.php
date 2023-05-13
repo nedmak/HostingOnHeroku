@@ -421,7 +421,7 @@
                 </div>
                 <div class="col">
                     <div class="d-flex justify-content-end">
-                        <a href="/admFixture" class="btn btn-outline-danger" style="margin-bottom: 50px; margin-top: 30px;">Back</a>
+                        <a href="/admFixture" class="btn btn-danger" style="margin-bottom: 50px; margin-top: 30px;">Back</a>
                     </div>
                 </div>
             </div>

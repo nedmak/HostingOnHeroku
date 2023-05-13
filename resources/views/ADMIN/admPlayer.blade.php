@@ -87,7 +87,7 @@
                                     @endif
                                 @endforeach
                                 <td><a class="btn btn-outline-light" href="/editPlayer/{{ $players->id }}">Edit</a>|
-                                    <a class="btn btn-outline-danger" href="/deletePlayer/{{ $players->id }}">Delete</a></td>
+                                    <a class="btn btn-danger" href="/deletePlayer/{{ $players->id }}">Delete</a></td>
                             </tr>
                         @endforeach
                     </tbody>

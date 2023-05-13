@@ -62,7 +62,7 @@
                             </div>
                             <div class="col">
                                 <div class="d-flex justify-content-end">
-                                    <a href="/admTeam" class="btn btn-outline-danger"style="margin-top: 20px">Back</a>
+                                    <a href="/admTeam" class="btn btn-danger"style="margin-top: 20px">Back</a>
                                 </div>
                             </div>
                         </div>

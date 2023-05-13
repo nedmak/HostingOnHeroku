@@ -294,5 +294,6 @@
           </div>
 
           <div id="chartdiv"></div>
+          <div class="overlay"></div>
     </body>
 </html>
