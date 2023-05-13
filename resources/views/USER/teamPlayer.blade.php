@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <button type="submit" class="btn btn-primary py-2">Filter</button>
+                            <button type="submit" class="btn btn-outline-light">Filter</button>
                         </div>
                     </div>
                 </form>
@@ -92,7 +92,7 @@
                                 <td>{{ $players->number }}</td>
                                 <td>{{ $players->position }}</td>
                                 <td>{{ $players->team }}</td>
-                                <td><a class="nav-link" href="/playerStats/{{ $players->name }}">More</a></td>
+                                <td><a class="btn btn-outline-light" href="/playerStats/{{ $players->name }}">Stats</a></td>
                             </tr>
                         @endforeach
                     </tbody>

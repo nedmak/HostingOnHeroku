@@ -324,7 +324,7 @@
                 </div>
                 <div class="col">
                     <div class="d-flex justify-content-end">
-                        <a class="btn btn-outline-danger" href="{{ url()->previous() }}">Back</a>
+                        <a class="btn btn-danger" href="{{ url()->previous() }}">Back</a>
                     </div>
                 </div>
             </div>

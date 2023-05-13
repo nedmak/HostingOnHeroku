@@ -15,14 +15,13 @@
               margin-left: 75px;
               margin-bottom: 25px;
               margin-top: 25px;
-                background-color: lightgray;
             }
             </style>
 
             <!-- Resources -->
             <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
             <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-            <script src="https://cdn.amcharts.com/lib/5/themes/Dataviz.js"></script>
+            <script src="https://cdn.amcharts.com/lib/5/themes/Dark.js"></script>
 
             <!-- Chart code -->
             <script>
@@ -35,7 +34,7 @@
             // Set themes
             // https://www.amcharts.com/docs/v5/concepts/themes/
             root.setThemes([
-              am5themes_Dataviz.new(root)
+              am5themes_Dark.new(root)
             ]);
 
             // Create chart
