@@ -196,16 +196,19 @@ class TeamController extends Controller
 
     public function updateTeam(Request $req)
     {
+        $req->validate([
+            'name' => 'required'
+        ]);
         admTeam::where('id', $req->id)->update([
             'name'=>$req->name,
         ]);
-        return redirect('admTeam');
+        return redirect('admTeam')->with('success', 'Team updated successfully');
     }
 
     public function deleteTeam($id)
     {
         admTeam::where('id', $id)->delete();
-        return redirect('admTeam');
+        return redirect('admTeam')->with('success', 'Team deleted successfully');
     }
 
     public function admTeamStats($id)
