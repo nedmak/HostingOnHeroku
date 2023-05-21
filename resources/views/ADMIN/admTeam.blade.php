@@ -46,6 +46,11 @@
             <a class="btn btn-outline-light" href="/addTeam">Add new Team</a>
             <div class="row">
                 <h2>TEAMS</h2>
+                @if (Session::has('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{ Session::get('success') }}
+                    </div>
+                @endif
                 <table class="table">
                     <thead>
                         <tr>
