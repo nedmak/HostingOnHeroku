@@ -225,13 +225,18 @@ class FixtureController extends Controller
 
     public function saveFixture(Request $req)
     {
+        $req->validate([
+            'h_team' => 'required',
+            'a_team' => 'required',
+            'date' => 'required|date'
+        ]);
         $fixture = new admFixture;
         $fixture->h_team = $req->h_team;
         $fixture->a_team = $req->a_team;
         $fixture->date = $req->date;
         $fixture->userID = session()->get('email');
         $fixture->save();
-        return redirect('admFixture');
+        return redirect('admFixture')->with('success', 'Fixture created successfully');
     }
 
     public function editFixture($id)
@@ -243,18 +248,23 @@ class FixtureController extends Controller
 
     public function updateFixture(Request $req)
     {
+        $req->validate([
+            'h_team' => 'required',
+            'a_team' => 'required',
+            'date' => 'required|date'
+        ]);
         admFixture::where('id', $req->id)->update([
             'h_team'=>$req->h_team,
             'a_team'=>$req->a_team,
             'date'=>$req->date,
         ]);
-        return redirect ('admFixture');
+        return redirect ('admFixture')->with('success', 'Fixture updated successfully');
     }
 
     public function deleteFixture($id)
     {
         admFixture::where('id', $id)->delete();
-        return redirect ('admFixture');
+        return redirect ('admFixture')->with('success', 'Fixture deleted successfully');
     }
 
     public function exportFixture($id)

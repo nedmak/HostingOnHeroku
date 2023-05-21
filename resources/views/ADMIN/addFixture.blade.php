@@ -45,10 +45,17 @@
             <div class="row">
                 <div class="col-md-6">
                     <h2>Create fixture</h2>
+                    @if ($errors->any())
+                        @foreach ($errors->all() as $err)
+                            <div class="alert alert-danger" role="alert">
+                                {{ $err }}
+                            </div>
+                        @endforeach
+                    @endif
                     <form action="/saveFixture" method="post">
                         @csrf
                         <div class="md-3">
-                            <label for="h_team">Select home team</label>
+                            <label for="h_team" style="color: white">Select home team</label>
                             <select name="h_team" id="h_team" class="form-control">
                                 @foreach ($data as $team)
                                     <option value="{{ $team->id }}">{{ $team->name }}</option>
@@ -56,7 +63,7 @@
                             </select>
                         </div>
                         <div class="md-3">
-                            <label for="a_team">Select away team</label>
+                            <label for="a_team" style="color: white">Select away team</label>
                             <select name="a_team" id="a_team" class="form-control">
                                 @foreach ($data as $team)
                                     <option value="{{ $team->id }}">{{ $team->name }}</option>
@@ -64,7 +71,7 @@
                             </select>
                         </div>
                         <div class="md-3">
-                            <label for="date">Select start date</label>
+                            <label for="date" style="color: white">Select start date</label>
                             <input type="date" name="date" id="date" class="form-control">
                         </div>
                         <div class="row">
