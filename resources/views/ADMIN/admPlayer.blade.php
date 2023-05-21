@@ -64,6 +64,13 @@
                         {{ Session::get('success') }}
                     </div>
                 @endif
+                @if ($errors->any())
+                    @foreach ($errors->all() as $err)
+                        <div class="alert alert-danger" role="alert">
+                            {{ $err }}
+                        </div>
+                    @endforeach
+                @endif
                 <table class="table">
                     <thead>
                         <tr>

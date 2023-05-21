@@ -248,7 +248,7 @@ class PlayerController extends Controller
     public function deletePlayer($id)
     {
         admPlayer::where('id', $id)->delete();
-        return redirect('admPlayer')->with('success', 'Fixture deleted successfully');
+        return redirect('admPlayer')->with('success', 'Player deleted successfully');
     }
 
     public function importPlayer(Request $req)
