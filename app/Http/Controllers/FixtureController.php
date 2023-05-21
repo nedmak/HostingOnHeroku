@@ -276,6 +276,7 @@ class FixtureController extends Controller
 
     public function importFixture(Request $req)
     {
+        $req->validate(['file' => 'mimes:xlsx']);
         session()->put('fixture', $req->fixture);
         $path = $req->file('file')->getRealPath();
         Excel::import(new StatsImport, $path, null, \Maatwebsite\Excel\Excel::XLSX);
