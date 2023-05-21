@@ -45,11 +45,21 @@
             <div class="row">
                 <div class="col-md-6">
                     <h2>Add Team</h2>
+                    @if (Session::has('success'))
+                        <div class="alert alert-success" role="alert">
+                            {{ Session::get('success') }}
+                        </div>
+                    @endif
                     <form action="/saveTeam" method="post">
                         @csrf
                         <div class="md-3">
                             <label for="name" style="color: white;">Enter team name</label>
                             <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                            @error('name')
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $messege }}
+                                </div>
+                            @enderror
                         </div>
                         <div class="row">
                             <div class="col">

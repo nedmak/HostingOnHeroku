@@ -178,11 +178,14 @@ class TeamController extends Controller
 
     public function saveTeam(Request $req)
     {
+        $req->validate([
+            'name' => 'required|string',
+        ]);
         $team = new admTeam;
         $team->name = $req->name;
         $team->userID = session()->get('email');
         $team->save();
-        return redirect('admTeam');
+        return redirect('admTeam')->with('success', 'Team added successfully');
     }
 
     public function editTeam($id)
