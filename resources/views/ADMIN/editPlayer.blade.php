@@ -45,6 +45,13 @@
             <div class="row">
                 <div class="col-md-6">
                     <h2>Edit Player</h2>
+                    @if ($errors->any())
+                        @foreach ($errors->all() as $err)
+                            <div class="alert alert-danger" role="alert">
+                                {{ $err }}
+                            </div>
+                        @endforeach
+                    @endif
                     <form action="/updatePlayer" method="post">
                         @csrf
                         @foreach ($data as $player)

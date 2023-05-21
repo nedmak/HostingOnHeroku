@@ -193,6 +193,15 @@ class PlayerController extends Controller
 
     public function savePlayer(Request $req)
     {
+        $req->validate([
+            'name' => 'required|string',
+            'lastname' => 'required|string',
+            'age' => 'required|integer',
+            'number' => 'required|integer',
+            'position' => 'required|string',
+            'team' => 'required',
+            'email' => 'required|email'
+        ]);
         $player = new admPlayer;
         $player->name = $req->name;
         $player->lastname = $req->lastname;
@@ -203,7 +212,7 @@ class PlayerController extends Controller
         $player->email = $req->email;
         $player->userID = session()->get('email');
         $player->save();
-        return redirect('admPlayer');
+        return redirect('admPlayer')->with('success', 'Player added successfully');
     }
 
     public function editPlayer($id)
@@ -215,6 +224,15 @@ class PlayerController extends Controller
 
     public function updatePlayer(Request $req)
     {
+        $req->validate([
+            'name' => 'required|string',
+            'lastname' => 'required|string',
+            'age' => 'required|integer',
+            'number' => 'required|integer',
+            'position' => 'required|string',
+            'team' => 'required',
+            'email' => 'required|email'
+        ]);
         admPlayer::where('id', $req->id)->update([
             'name'=>$req->name,
             'lastname'=>$req->lastname,
@@ -224,17 +242,18 @@ class PlayerController extends Controller
             'teamID'=>$req->team,
             'email'=>$req->email,
         ]);
-        return redirect('admPlayer');
+        return redirect('admPlayer')->with('success', 'Player updated successfully');
     }
 
     public function deletePlayer($id)
     {
         admPlayer::where('id', $id)->delete();
-        return redirect('admPlayer');
+        return redirect('admPlayer')->with('success', 'Fixture deleted successfully');
     }
 
     public function importPlayer(Request $req)
     {
+        $req->validate(['file' => 'required|mimes:xlsx']);
         $path = $req->file('file')->getRealPath();
         Excel::import(new TeamImport(), $path, null, \Maatwebsite\Excel\Excel::XLSX);
         return redirect('admPlayer');

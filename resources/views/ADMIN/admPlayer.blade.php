@@ -59,6 +59,11 @@
             </div>
             <div class="row">
                 <h2>PLAYERS</h2>
+                @if (Session::has('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{ Session::get('success') }}
+                    </div>
+                @endif
                 <table class="table">
                     <thead>
                         <tr>
