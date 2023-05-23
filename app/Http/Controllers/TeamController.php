@@ -156,6 +156,13 @@ class TeamController extends Controller
         return view('USER/teamStats', compact('data', 'name', 'all', 'number'));
     }
 
+    public function compareTeams(Request $req)
+    {
+        $f_team = TeamStats::where('team', $req->f_team)->first();
+        $s_team = TeamStats::where('team', $req->s_team)->first();
+        return view('USER/compareTeam', compact('f_team', 's_team'));
+    }
+
     //------------------------------------------ ADMIN --------------------------------------------------
 
     public function indexADM(Request $req)

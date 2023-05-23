@@ -169,6 +169,13 @@ class PlayerController extends Controller
         return view('USER/teamPlayer', compact('data', 'name'));
     }
 
+    public function comparePlayers(Request $req)
+    {
+        $f_player = PlayerStats::where('name', $req->f_player)->first();
+        $s_player = PlayerStats::where('name', $req->s_player)->first();
+        return view('USER/comparePlayer', compact('f_player', 's_player'));
+    }
+
     // ----------------------ADMIN--------------------------
 
     public function indexADM()

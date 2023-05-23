@@ -26,6 +26,7 @@ Route::get('/teams',[TeamController::class, 'index']);
 Route::get('/teamsF',[TeamController::class, 'filter']);
 Route::get('/getTeamStats',[TeamController::class, 'GetStats']);
 Route::get('/teamStats/{id}',[TeamController::class, 'indexStats']);
+Route::get('/compareTeams',[TeamController::class, 'compareTeams']);
 
 // Leagues
 Route::get('/getLeagues',[LeagueController::class, 'GetLeague']);
@@ -41,6 +42,7 @@ Route::get('/teamPlayer/{id}',[PlayerController::class, 'teamPlayer']);
 Route::get('/playersf',[PlayerController::class, 'filter']);
 Route::get('/getPlayerStats',[PlayerController::class, 'GetStats']);
 Route::get('/playerStats/{id}',[PlayerController::class, 'indexStats']);
+Route::get('/comparePlayers',[PlayerController::class, 'comparePlayers']);
 
 // Fixtures
 Route::get('/getFixtures',[FixtureController::class, 'GetFixture']);
