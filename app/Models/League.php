@@ -14,7 +14,7 @@ class League extends Model
         'type',
         'country',
         'season',
-        'start',
-        'end',
+        'start_date',
+        'end_date',
     ];
 }

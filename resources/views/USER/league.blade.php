@@ -122,8 +122,8 @@
                                 <td>{{ $leagues->type }}</td>
                                 <td>{{ $leagues->country }}</td>
                                 <td>{{ $leagues->season }}</td>
-                                <td>{{ $leagues->start }}</td>
-                                <td>{{ $leagues->end }}</td>
+                                <td>{{ $leagues->start_date }}</td>
+                                <td>{{ $leagues->end_date }}</td>
                                 <td><a class="btn btn-outline-light" href="/standings/{{ $leagues->name }}" style="height: 30px; width: 85px; padding: 0; text-align: center;">Standings</a></td>
                             </tr>
                         @endforeach
