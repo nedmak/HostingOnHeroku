@@ -16,7 +16,7 @@ class TeamExport implements WithMultipleSheets
 
     public function sheets(): array
     {
-        $team = admTeam::get();
+        $team = admTeam::where('userID', session()->get('email'))->get();
         foreach($team as $t)
         {
             $sheets[] = new TemplateExport($t->name);
