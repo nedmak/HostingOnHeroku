@@ -204,7 +204,7 @@ class TeamController extends Controller
     public function updateTeam(Request $req)
     {
         $req->validate([
-            'name' => 'required'
+            'name' => 'required|unique:adm_teams,name'
         ]);
         admTeam::where('id', $req->id)->update([
             'name'=>$req->name,

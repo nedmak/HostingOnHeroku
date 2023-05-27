@@ -207,7 +207,7 @@ class PlayerController extends Controller
             'number' => 'required|integer',
             'position' => 'required|string',
             'team' => 'required',
-            'email' => 'required|email'
+            'email' => 'email'
         ]);
         $player = new admPlayer;
         $player->name = $req->name;
@@ -238,7 +238,7 @@ class PlayerController extends Controller
             'number' => 'required|integer',
             'position' => 'required|string',
             'team' => 'required',
-            'email' => 'required|email'
+            'email' => 'email'
         ]);
         admPlayer::where('id', $req->id)->update([
             'name'=>$req->name,
