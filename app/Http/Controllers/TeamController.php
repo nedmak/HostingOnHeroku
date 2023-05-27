@@ -186,7 +186,7 @@ class TeamController extends Controller
     public function saveTeam(Request $req)
     {
         $req->validate([
-            'name' => 'required'
+            'name' => 'required|unique:adm_teams,name'
         ]);
         $team = new admTeam;
         $team->name = $req->name;

@@ -242,7 +242,7 @@ class FixtureController extends Controller
     public function editFixture($id)
     {
         $data = admFixture::where('id', $id)->get();
-        $team = admTeam::get();
+        $team = admTeam::where('userID', session()->get('email'))->get();
         return view('ADMIN/editFixture', compact('data', 'team'));
     }
 
