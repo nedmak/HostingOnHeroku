@@ -4,11 +4,12 @@ namespace App\Imports;
 
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 use App\Models\admPlayer;
 
-class PlayerImport implements ToModel, WithHeadingRow
+class PlayerImport implements ToModel, WithValidation, WithHeadingRow
 {
     /**
     * @param Collection $collection
@@ -18,7 +19,7 @@ class PlayerImport implements ToModel, WithHeadingRow
         $this->id = $id;
     }
 
-    public function model(array  $row)
+    public function model(array $row)
     {
         return new admPlayer([
             'name' => $row['name'],
@@ -30,5 +31,17 @@ class PlayerImport implements ToModel, WithHeadingRow
             'teamID' => $this->id,
             'userID' => session()->get('email'),
         ]);
+    }
+
+    public function rules(): array
+    {
+        return [
+            'name' => 'required|string',
+            'last_name' => 'required|string',
+            'age' => 'required|integer',
+            'number' => 'required|integer',
+            'position' => 'required|in:attacker,goalkeeper,midfielder,defender',
+            'email' => 'email',
+        ];
     }
 }

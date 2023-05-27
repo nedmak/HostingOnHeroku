@@ -263,7 +263,7 @@ class PlayerController extends Controller
         $req->validate(['file' => 'required|mimes:xlsx']);
         $path = $req->file('file')->getRealPath();
         Excel::import(new TeamImport(), $path, null, \Maatwebsite\Excel\Excel::XLSX);
-        return redirect('admPlayer');
+        return redirect('admPlayer')->with('success', 'Players imported successfully');
     }
 
     public function export()
