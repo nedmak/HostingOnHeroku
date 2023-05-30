@@ -50,7 +50,6 @@
                 <table class="table" id="fixtureTable">
                     <thead>
                         <tr>
-                            <th>#</th>
                             <th>Referee</th>
                             <th>League</th>
                             <th>Home team</th>
@@ -62,7 +61,6 @@
                     <tbody>
                         @foreach ($data as $fixtures)
                             <tr>
-                                <td>{{ $fixtures->id }}</td>
                                 <td>{{ $fixtures->ref }}</td>
                                 <td>{{ $fixtures->league }}</td>
                                 <td>{{ $fixtures->h_team }}</td>

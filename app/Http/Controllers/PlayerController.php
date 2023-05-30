@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Player;
+use App\Models\sat_fsas_players;
 use App\Models\admPlayer;
 use App\Models\admTeam;
 use App\Models\PlayerStats;
+use App\Models\sat_fsas_player_stats;
 use Illuminate\Support\Facades\Request as Requests;
 
 use Maatwebsite\Excel\Facades\Excel;
@@ -19,13 +22,13 @@ class PlayerController extends Controller
     {
         if(Requests::Input('filter') != null)
         {
-            $data = Player::where('position',Requests::Input('filter'))->orwhere('team',Requests::Input('filter'))->get();
+            $data = sat_fsas_players::where('position',Requests::Input('filter'))->orwhere('team',Requests::Input('filter'))->get();
         }
         else
         {
-            $data = Player::get();
+            $data = sat_fsas_players::where('load_cycle_id',22)->get();
         }
-        $all = Player::get();
+        $all = sat_fsas_players::where('load_cycle_id',22)->get();
         return view('USER/player', compact('data', 'all'));
     }
 
@@ -150,9 +153,9 @@ class PlayerController extends Controller
 
     public function indexStats($id)
     {
-        $data = PlayerStats::where('name', $id)->first();
-        $all = PlayerStats::where('league', $data->league)->get();
-        $number = PlayerStats::where('league', $data->league)->count('id');
+        $data = sat_fsas_player_stats::where('name', $id)->first();
+        $all = sat_fsas_player_stats::where('league', $data->league)->get();
+        $number = sat_fsas_player_stats::where('league', $data->league)->count('id');
         return view('USER/playerStats', compact('data', 'all', 'number', 'id'));
     }
 
@@ -160,19 +163,19 @@ class PlayerController extends Controller
     {
         if(Requests::Input('filter') != null)
         {
-            $data = Player::where('team', $name)->where('position',Requests::Input('filter'))->get();
+            $data = sat_fsas_players::where('team', $name)->where('position',Requests::Input('filter'))->get();
         }
         else
         {
-            $data = Player::where('team', $name)->get();
+            $data = sat_fsas_players::where('team', $name)->get();
         }
         return view('USER/teamPlayer', compact('data', 'name'));
     }
 
     public function comparePlayers(Request $req)
     {
-        $f_player = PlayerStats::where('name', $req->f_player)->first();
-        $s_player = PlayerStats::where('name', $req->s_player)->first();
+        $f_player = sat_fsas_player_stats::where('name', $req->f_player)->first();
+        $s_player = sat_fsas_player_stats::where('name', $req->s_player)->first();
         return view('USER/comparePlayer', compact('f_player', 's_player'));
     }
 
@@ -194,8 +197,15 @@ class PlayerController extends Controller
 
     public function addPlayer()
     {
-        $data = admTeam::where('userID', session()->get('email'))->get();
-        return view('ADMIN/addPlayer', compact('data'));
+        if(session()->has('id') == null)
+        {
+            return redirect('login');
+        }
+        else
+        {
+            $data = admTeam::where('userID', session()->get('email'))->get();
+            return view('ADMIN/addPlayer', compact('data'));
+        }
     }
 
     public function savePlayer(Request $req)
@@ -224,9 +234,16 @@ class PlayerController extends Controller
 
     public function editPlayer($id)
     {
-        $data = admPlayer::where('id', $id)->get();
-        $team = admTeam::where('userID', session()->get('email'))->get();
-        return view('ADMIN/editPlayer', compact('data', 'team'));
+        if(session()->has('id') == null)
+        {
+            return redirect('login');
+        }
+        else
+        {
+            $data = admPlayer::where('id', $id)->get();
+            $team = admTeam::where('userID', session()->get('email'))->get();
+            return view('ADMIN/editPlayer', compact('data', 'team'));
+        }
     }
 
     public function updatePlayer(Request $req)
@@ -273,8 +290,15 @@ class PlayerController extends Controller
 
     public function teamPlayers($id)
     {
-        $data = admPlayer::where('teamID', $id)->get();
-        $team = admTeam::where('id',$id)->get();
-        return view('ADMIN/admTeamPlayer', compact('data', 'team'));
+        if(session()->has('id') == null)
+        {
+            return redirect('login');
+        }
+        else
+        {
+            $data = admPlayer::where('teamID', $id)->get();
+            $team = admTeam::where('id',$id)->get();
+            return view('ADMIN/admTeamPlayer', compact('data', 'team'));
+        }
     }
 }

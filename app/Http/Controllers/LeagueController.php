@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\League;
+use App\Models\sat_fsas_leagues;
 use App\Models\admLeague;
 use App\Models\TeamStats;
+use App\Models\sat_fsas_team_stats;
 use Illuminate\Support\Facades\Request as Requests;
 
 class LeagueController extends Controller
@@ -14,13 +16,13 @@ class LeagueController extends Controller
     {
         if(Requests::Input('filter') != null)
         {
-            $data = League::where('type',Requests::Input('filter'))->orwhere('country',Requests::Input('filter'))->get();
+            $data = sat_fsas_leagues::where('type',Requests::Input('filter'))->orwhere('country',Requests::Input('filter'))->get();
         }
         else
         {
-            $data = League::get();
+            $data = sat_fsas_leagues::where('load_cycle_id',22)->get();
         }
-        $all = League::get(); //for filters
+        $all = sat_fsas_leagues::where('load_cycle_id',22)->get(); //for filters
         return view('USER/league', compact('data', 'all'));
     }
 
@@ -73,7 +75,7 @@ class LeagueController extends Controller
 
     public function standings($name)
     {
-        $data = TeamStats::where('league', $name)->get();
+        $data = sat_fsas_team_stats::where('league', $name)->get();
         foreach($data as $d)
         {
             $points = 3 * $d['wins'] + $d['ties'];

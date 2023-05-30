@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Team;
+use App\Models\sat_fsas_teams;
 use App\Models\TeamStats;
 use App\Models\admTeam;
 use App\Models\admLeague;
 use App\Models\admPlayerStas;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request as Requests;
 
 class TeamController extends Controller
@@ -17,13 +19,13 @@ class TeamController extends Controller
     {
         if(Requests::Input('filter') != null)
         {
-            $data = Team::where('country',Requests::Input('filter'))->get();
+            $data = sat_fsas_teams::where('country',Requests::Input('filter'))->get();
         }
         else
         {
-            $data = Team::get();
+            $data = sat_fsas_teams::where('load_cycle_id',22)->get();
         }
-        $all = Team::get();
+        $all = sat_fsas_teams::where('load_cycle_id',22)->get();
         return view('USER/team', compact('data', 'all'));
     }
 
@@ -180,7 +182,14 @@ class TeamController extends Controller
 
     public function addTeam()
     {
-        return view('ADMIN/addTeam');
+        if(session()->has('id') == null)
+        {
+            return redirect('login');
+        }
+        else
+        {
+            return view('ADMIN/addTeam');
+        }
     }
 
     public function saveTeam(Request $req)
@@ -197,8 +206,15 @@ class TeamController extends Controller
 
     public function editTeam($id)
     {
-        $data = admTeam::where('id', $id)->get();
-        return view('ADMIN/editTeam', compact('data'));
+        if(session()->has('id') == null)
+        {
+            return redirect('login');
+        }
+        else
+        {
+            $data = admTeam::where('id', $id)->get();
+            return view('ADMIN/editTeam', compact('data'));
+        }
     }
 
     public function updateTeam(Request $req)
@@ -220,15 +236,22 @@ class TeamController extends Controller
 
     public function admTeamStats($id)
     {
-        $data = admPlayerStas::where('teamID', $id)->get();
-        $team = admTeam::select('name')->where('id', $id)->get();
-        $number = admPlayerStas::where('teamID', $id)->distinct('fixtureID')->count('fixtureID');
-
-        foreach($team as $t)
+        if(session()->has('id') == null)
         {
-            $name = $t->name;
+            return redirect('login');
         }
+        else
+        {
+            $data = admPlayerStas::where('teamID', $id)->get();
+            $team = admTeam::select('name')->where('id', $id)->get();
+            $number = admPlayerStas::where('teamID', $id)->distinct('fixtureID')->count('fixtureID');
 
-        return view('ADMIN/admTeamStats', compact('data', 'name', 'number'));
+            foreach($team as $t)
+            {
+                $name = $t->name;
+            }
+
+            return view('ADMIN/admTeamStats', compact('data', 'name', 'number'));
+        }
     }
 }

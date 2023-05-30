@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 
 //-------------------------- Models ----------------------------
 use App\Models\Fixture;
+use App\Models\sat_fsas_fixtures;
 use App\Models\admFixture;
 use App\Models\admTeam;
 use App\Models\admPlayer;
 use App\Models\FixtureStats;
+use App\Models\sat_fsas_fixture_stats;
 use App\Models\admPlayerStas;
 
 //-------------------------- Excel -----------------------------
@@ -24,7 +26,7 @@ class FixtureController extends Controller
 {
     public function index()
     {
-        $data = Fixture::get();
+        $data = sat_fsas_fixtures::where('load_cycle_id',22)->get();
         return view('USER/fixture', compact('data'));
     }
 
@@ -197,7 +199,7 @@ class FixtureController extends Controller
 
     public function indexStats($id)
     {
-        $data = FixtureStats::where('fk','=',$id)->get();
+        $data = sat_fsas_fixture_stats::where('fk',$id)->get();
         return view('USER/fixtureStats', compact('data'));
     }
 
@@ -219,8 +221,15 @@ class FixtureController extends Controller
 
     public function addFixture()
     {
-        $data = admTeam::where('userID', session()->get('email'))->get();
-        return view('ADMIN/addFixture', compact('data'));
+        if(session()->has('id') == null)
+        {
+            return redirect('login');
+        }
+        else
+        {
+            $data = admTeam::where('userID', session()->get('email'))->get();
+            return view('ADMIN/addFixture', compact('data'));
+        }
     }
 
     public function saveFixture(Request $req)
@@ -241,9 +250,16 @@ class FixtureController extends Controller
 
     public function editFixture($id)
     {
-        $data = admFixture::where('id', $id)->get();
-        $team = admTeam::where('userID', session()->get('email'))->get();
-        return view('ADMIN/editFixture', compact('data', 'team'));
+        if(session()->has('id') == null)
+        {
+            return redirect('login');
+        }
+        else
+        {
+            $data = admFixture::where('id', $id)->get();
+            $team = admTeam::where('userID', session()->get('email'))->get();
+            return view('ADMIN/editFixture', compact('data', 'team'));
+        }
     }
 
     public function updateFixture(Request $req)
@@ -286,10 +302,17 @@ class FixtureController extends Controller
 
     public function admFixtureStats($id)
     {
-        $fixture = admFixture::where('id', $id)->get();
-        $stats = admPlayerStas::where('fixtureID', $id)->get();
-        $team = admTeam::get();
-        return view('ADMIN/admFixtureStats', compact('fixture', 'stats', 'team'));
+        if(session()->has('id') == null)
+        {
+            return redirect('login');
+        }
+        else
+        {
+            $fixture = admFixture::where('id', $id)->get();
+            $stats = admPlayerStas::where('fixtureID', $id)->get();
+            $team = admTeam::get();
+            return view('ADMIN/admFixtureStats', compact('fixture', 'stats', 'team'));
+        }
     }
 
     public function email($id)
