@@ -34,14 +34,14 @@ class SheetImport implements ToModel, WithValidation, WithHeadingRow
         return [
             'name' => 'required|string',
             'last_name' => 'required|string',
-            'min' => 'required|integer',
+            'minutes' => 'required|integer',
             'shots' => 'required|integer',
             'shots_on_goal' => 'required|integer',
             'goals' => 'required|integer',
             'assists' => 'required|integer',
-            'yellow' => 'required|integer',
-            'red' => 'required|integer',
-            'teamID' => 'required|integer',
+            'yellow_cards' => 'required|integer',
+            'red_cards' => 'required|integer',
+            'team_id' => 'required|integer',
         ];
     }
 }
