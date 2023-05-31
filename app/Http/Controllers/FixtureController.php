@@ -297,7 +297,7 @@ class FixtureController extends Controller
         $path = $req->file('file')->getRealPath();
         Excel::import(new StatsImport, $path, null, \Maatwebsite\Excel\Excel::XLSX);
         session()->forget('fixture');
-        return redirect('admFixture');
+        return redirect('admFixture')->with('success', 'Stats imported successfully');
     }
 
     public function admFixtureStats($id)
