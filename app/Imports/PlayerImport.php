@@ -40,7 +40,7 @@ class PlayerImport implements ToModel, WithValidation, WithHeadingRow
             'last_name' => 'required|string',
             'age' => 'required|integer',
             'number' => 'required|integer',
-            'position' => 'required|in:attacker,goalkeeper,midfielder,defender',
+            'position' => 'required|in:attacker,goalkeeper,midfielder,defender,Attacker,Goalkeeper,Midfielder,Defender',
             'email' => 'email',
         ];
     }
