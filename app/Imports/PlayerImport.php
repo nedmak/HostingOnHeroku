@@ -41,7 +41,6 @@ class PlayerImport implements ToModel, WithValidation, WithHeadingRow
             'age' => 'required|integer',
             'number' => 'required|integer',
             'position' => 'required|in:attacker,goalkeeper,midfielder,defender,Attacker,Goalkeeper,Midfielder,Defender',
-            'email' => 'email',
         ];
     }
 }
